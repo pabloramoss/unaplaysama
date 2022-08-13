@@ -3,6 +3,7 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import { useState } from 'react'
 import ChoicesList from '../Components/ChoicesList'
+import Wheel from '../Components/Wheel/Wheel'
 
 const Home: NextPage = () => {
   const [choices, setChoices] = useState([])
@@ -18,8 +19,9 @@ const Home: NextPage = () => {
       <main>
         <HStack gap={100}>
           <ChoicesList setChoices={setChoices} />
-          <img height={500} width={500} src="https://via.placeholder.com/500" />
+          <img style={{borderRadius: "9999px"}} height={500} width={500} src="https://via.placeholder.com/500" />
         </HStack>
+        <Wheel />
       </main>
 
       <footer>
