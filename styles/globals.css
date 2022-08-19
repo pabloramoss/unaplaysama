@@ -24,3 +24,21 @@ a {
     background: black;
   }
 }
+
+li:first-child .text {
+  background: violet;
+}
+
+li:nth-child(2) .text {
+  background: indigo;
+}
+li:nth-child(3) .text {
+  background: blue;
+}
+li:nth-child(4) .text {
+  background: green;
+}
+
+li:first-child {
+  transform: rotate(0deg) skewY(-60deg);
+}
