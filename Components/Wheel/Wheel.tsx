@@ -1,37 +1,26 @@
 import React from 'react';
+import { VictoryPie } from 'victory';
 
-const Wheel: React.FC = ()=> {
+interface WheelProps {
+  choices: any;
+}
+
+const Wheel: React.FC<WheelProps> = ({choices})=> {
+  const colorScale = ["blue", "red", "white", "yellow"]
 
   return(
-    <div id="wrapper">
-      <div id="wheel">
-        <div id="inner-wheel">
-          <div className='sec'>
-            <span className='fa fa-bell-o'></span>
-          </div>
-          <div className='sec'>
-            <span className='fa fa-comment-o'></span>
-          </div>
-          <div className='sec'>
-            <span className='fa fa-smile-o'></span>
-          </div>
-          <div className='sec'>
-            <span className='fa fa-heart-o'></span>
-          </div>
-          <div className='sec'>
-            <span className='fa fa-lightbulb-o'></span>
-          </div>
-          <div className='sec'>
-            <span className='fa fa-bell-o'></span>
-          </div>
-        </div>
-        <div id='spin'>
-          <div id='inner-spin'></div>
-        </div>
-        <div id='shine'></div>
-      </div>
-      <div id='text'></div>
-    </div>
+    <VictoryPie
+    colorScale={colorScale}
+    height={600}
+    width={600}
+    innerRadius={50}
+    data={choices}
+    labelPosition="centroid"
+    labelPlacement="parallel"
+    labels={({ datum }) => datum.x}
+    labelRadius={({ innerRadius }) => innerRadius + 5 }
+    style={{ labels: { fill: "white", fontSize: 20, fontWeight: "bold"}}} 
+  />
   )
 }
 export default Wheel
